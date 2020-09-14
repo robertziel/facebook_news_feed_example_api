@@ -1,0 +1,9 @@
+language: ruby
+services:
+  - postgresql
+env:
+  - TRAVIS=true
+script:
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate RAILS_ENV=test
+  - bundle exec rspec
