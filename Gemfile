@@ -6,7 +6,7 @@ ruby File.read(File.expand_path('.ruby-version', __dir__)).chomp
 # Core
 
 gem 'rails', '~> 6.0.3.3'
-gem 'pg'
+gem 'mysql2'
 gem 'puma'
 
 # API

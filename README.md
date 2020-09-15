@@ -26,12 +26,14 @@ Install the bundle:
 bundle install
 ```
 
-Make sure the postresql is running on localhost. You may have to change your credentials under /config/database.yml:
+Make sure you have MySQL working.
+Default user is set to `root` in `config/database.yml`.
+Then you can prepare your database:
 
 ```
-rake db:create
-rake db:migrate
-rake db:seed
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
 ```
 
 Run the development server:

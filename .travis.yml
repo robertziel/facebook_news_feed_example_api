@@ -1,6 +1,6 @@
 language: ruby
 services:
-  - postgresql
+  - mysql
 env:
   - TRAVIS=true
 script:
