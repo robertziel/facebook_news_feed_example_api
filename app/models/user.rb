@@ -12,21 +12,15 @@ class User < ApplicationRecord
          :jwt_authenticatable,
          jwt_revocation_strategy: self
 
-  # - RELATIONS
-  # -
+  # RELATIONS
+  has_many :news_feeds, dependent: :destroy
 
   # VALIDATIONS
-  validates :email, presence: true
-  validates :email, length: { maximum: 255 }
-  validates :email, format: { with: Regex::Email::VALIDATE }
-  validates :first_name, presence: true
-  validates :first_name, length: { maximum: 255 }
-  validates :last_name, presence: true
-  validates :last_name, length: { maximum: 255 }
-
-  def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).deliver_later
-  end
+  validates :email, presence: true,
+                    length: { maximum: 255 },
+                    format: { with: Regex::Email::VALIDATE }
+  validates :first_name, presence: true, length: { maximum: 255 }
+  validates :last_name, presence: true, length: { maximum: 255 }
 
   def name
     "#{first_name} #{last_name}"
