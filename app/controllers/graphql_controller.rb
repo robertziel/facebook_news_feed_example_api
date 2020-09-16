@@ -1,4 +1,6 @@
 class GraphqlController < ApplicationController
+  before_action :switch_locale
+  after_action :reset_locale
 
   def execute
     variables = ensure_hash(params[:variables])
@@ -21,7 +23,7 @@ class GraphqlController < ApplicationController
     handle_error_in_development e
   end
 
-    private
+  private
 
     # Handle form data, JSON body, or a blank value
   def ensure_hash(ambiguous_param)
@@ -52,5 +54,13 @@ class GraphqlController < ApplicationController
       },
       data: {}
     }, status: 500
+  end
+
+  def switch_locale
+    I18n.locale = request.headers['languageLocale'] || I18n.default_locale
+  end
+
+  def reset_locale
+    I18n.locale = I18n.default_locale
   end
 end
