@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Resolvers::Posts do
+describe Resolvers::Posts::Index do
   let(:query) do
     '{
       posts {
