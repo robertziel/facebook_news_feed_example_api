@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe '#relations' do
-    it { should have_many(:news_feeds).dependent(:destroy) }
+    it { should have_many(:posts).dependent(:destroy) }
   end
 
   describe '#validations' do

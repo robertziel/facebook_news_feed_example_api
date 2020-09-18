@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe NewsFeed, type: :model do
+RSpec.describe Post, type: :model do
   describe '#relations' do
     it { should belong_to(:user) }
   end

@@ -1,10 +1,10 @@
 # Facebook like feeds GraphQL API
 
-[![Build Status](https://travis-ci.com/robertziel/facebook_news_feed_example_api.svg?branch=master)](https://travis-ci.com/robertziel/facebook_news_feed_example_api) [![Coverage Status](https://coveralls.io/repos/github/robertziel/facebook_news_feed_example_api/badge.svg?branch=master)](https://coveralls.io/github/robertziel/facebook_news_feed_example_api?branch=master)
+[![Build Status](https://travis-ci.com/robertziel/facebook_post_example_api.svg?branch=master)](https://travis-ci.com/robertziel/facebook_post_example_api) [![Coverage Status](https://coveralls.io/repos/github/robertziel/facebook_post_example_api/badge.svg?branch=master)](https://coveralls.io/github/robertziel/facebook_post_example_api?branch=master)
 
 Init based on boilerplate: https://github.com/robertziel/rails_graphql_jwt_devise_auth_boilerplate
 
-Client (ReactJS): https://github.com/robertziel/facebook_news_feed_example_client
+Client (ReactJS): https://github.com/robertziel/facebook_post_example_client
 
 Technology:
 

@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe Resolvers::NewsFeeds do
+describe Resolvers::Posts do
   let(:query) do
     '{
-      newsFeeds {
+      posts {
         content
         user { name }
       }
@@ -12,17 +12,17 @@ describe Resolvers::NewsFeeds do
   let(:query_variables) { {} }
   let(:query_context) { {} }
 
-  let!(:news_feed) { create :news_feed }
+  let!(:post) { create :post }
 
   describe '#resolve' do
     subject do
-      graphql!['data']['newsFeeds']
+      graphql!['data']['posts']
     end
 
     include_examples :graphql_authenticate_user
 
     it `shows the user's name` do
-      expect(subject.first.dig('user', 'name')).to eq news_feed.user.name
+      expect(subject.first.dig('user', 'name')).to eq post.user.name
     end
   end
 end

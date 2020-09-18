@@ -13,7 +13,7 @@ class User < ApplicationRecord
          jwt_revocation_strategy: self
 
   # RELATIONS
-  has_many :news_feeds, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   # VALIDATIONS
   validates :email, presence: true,
