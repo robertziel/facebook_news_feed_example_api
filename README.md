@@ -1,4 +1,4 @@
-# Facebook like feeds GraphQL API
+# Facebook like posts app example GraphQL API
 
 [![Build Status](https://travis-ci.com/robertziel/facebook_post_example_api.svg?branch=master)](https://travis-ci.com/robertziel/facebook_post_example_api) [![Coverage Status](https://coveralls.io/repos/github/robertziel/facebook_post_example_api/badge.svg?branch=master)](https://coveralls.io/github/robertziel/facebook_post_example_api?branch=master)
 
