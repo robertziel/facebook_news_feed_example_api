@@ -8,7 +8,7 @@ module Resolvers
 
       def resolve
         authenticate_user!
-        Post.limit(5)
+        Post.order(created_at: :desc).limit(5)
       end
     end
   end
