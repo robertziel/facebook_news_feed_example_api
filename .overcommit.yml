@@ -7,7 +7,7 @@ PreCommit:
     enabled: true
 
   BundleCheck:
-    enabled: true
+    enabled: false
 
   CoffeeLint:
     enabled: true

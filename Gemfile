@@ -38,6 +38,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'action-cable-testing'
   gem 'coveralls', '>= 0.8.23', require: false
   gem 'database_cleaner'
   gem 'faker'
@@ -51,6 +52,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

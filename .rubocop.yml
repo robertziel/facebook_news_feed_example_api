@@ -8,7 +8,6 @@ AllCops:
     - storage/**/*
     - tmp/**/*
     - vendor/**/*
-
 Metrics/BlockLength:
   Exclude:
     - 'app/api/**/*_api.rb'
@@ -73,6 +72,8 @@ Style/StringConcatenation:
 Naming/PredicateName:
   Enabled: false
 
+Layout/ClosingParenthesisIndentation:
+  Enabled: false
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 Layout/SpaceAroundMethodCallOperator:

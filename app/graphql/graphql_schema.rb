@@ -1,4 +1,7 @@
 class GraphqlSchema < GraphQL::Schema
-  query(Types::QueryType)
-  mutation(Types::MutationType)
+  use GraphQL::Subscriptions::ActionCableSubscriptions
+
+  query Types::QueryType
+  mutation Types::MutationType
+  subscription Types::SubscriptionType
 end
