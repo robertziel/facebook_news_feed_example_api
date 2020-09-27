@@ -5,10 +5,14 @@ module Resolvers
 
       type [Types::PostType], null: false
       description 'Returns posts list'
+      argument :older_than_id, ID, required: false
 
-      def resolve
+      def resolve(older_than_id: nil)
         authenticate_user!
-        Post.order(created_at: :desc).limit(5)
+
+        posts = Post
+        posts = posts.where('id < ?', older_than_id) if older_than_id.present?
+        posts.order(id: :desc).limit(5)
       end
     end
   end
