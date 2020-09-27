@@ -2,6 +2,7 @@ language: ruby
 services:
   - mysql
 env:
+  - DEVISE_JWT_SECRET_KEY=test_key
   - TRAVIS=true
 script:
   - bundle exec rake db:create
