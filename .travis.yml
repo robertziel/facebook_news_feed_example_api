@@ -2,8 +2,7 @@ language: ruby
 services:
   - mysql
 env:
-  - DEVISE_JWT_SECRET_KEY=test_key
-  - TRAVIS=true
+  - DEVISE_JWT_SECRET_KEY=test_key TRAVIS=true
 script:
   - bundle exec rake db:create
   - bundle exec rake db:migrate RAILS_ENV=test
