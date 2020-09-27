@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   # Relations
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   # Validations
   validates :content, presence: true
