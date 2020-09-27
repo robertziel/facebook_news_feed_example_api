@@ -1,6 +1,6 @@
 module Resolvers
   module Posts
-    class Index < GraphQL::Schema::Resolver
+    class AllPosts < GraphQL::Schema::Resolver
       include ::GraphqlAuthenticationConcerns
 
       type [Types::PostType], null: false

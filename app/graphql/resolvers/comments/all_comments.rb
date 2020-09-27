@@ -1,6 +1,6 @@
 module Resolvers
   module Comments
-    class Index < GraphQL::Schema::Resolver
+    class AllComments < GraphQL::Schema::Resolver
       include ::GraphqlAuthenticationConcerns
 
       type [Types::CommentType], null: false

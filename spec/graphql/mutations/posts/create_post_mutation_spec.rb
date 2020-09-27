@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Mutations::Posts::Create do
+describe Mutations::Posts::CreatePost do
   let(:query) do
     '
       mutation postCreate($title: String!, $content: String!){

@@ -1,6 +1,6 @@
 module Mutations
   module Posts
-    class Create < GraphQL::Schema::Mutation
+    class CreatePost < GraphQL::Schema::Mutation
       include ::GraphqlActiveModelConcerns
       include ::GraphqlAuthenticationConcerns
 

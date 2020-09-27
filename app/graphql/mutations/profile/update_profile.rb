@@ -1,6 +1,6 @@
 module Mutations
   module Profile
-    class Update < GraphQL::Schema::Mutation
+    class UpdateProfile < GraphQL::Schema::Mutation
       include ::GraphqlActiveModelConcerns
       include ::GraphqlAuthenticationConcerns
 

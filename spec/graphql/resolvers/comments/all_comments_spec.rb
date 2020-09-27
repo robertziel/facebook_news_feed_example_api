@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Resolvers::Comments::Index do
+describe Resolvers::Comments::AllComments do
   let(:query) do
     '
       query comments($postId: ID!, $olderThanId: ID) {

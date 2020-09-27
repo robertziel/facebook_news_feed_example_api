@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Resolvers::Posts::Show do
+describe Resolvers::Posts::ShowPost do
   let(:query) do
     '
       query post($id: ID!) {

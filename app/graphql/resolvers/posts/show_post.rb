@@ -1,6 +1,6 @@
 module Resolvers
   module Posts
-    class Show < GraphQL::Schema::Resolver
+    class ShowPost < GraphQL::Schema::Resolver
       include ::GraphqlAuthenticationConcerns
 
       type Types::PostType, null: false

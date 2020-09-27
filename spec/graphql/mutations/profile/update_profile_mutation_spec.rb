@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Mutations::Profile::Update do
+describe Mutations::Profile::UpdateProfile do
   let(:query) do
     '
       mutation profileUpdate($email: String!, $firstName: String!, $lastName: String!, $password: String, $passwordConfirmation: String){

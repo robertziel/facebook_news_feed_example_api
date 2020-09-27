@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Resolvers::Posts::Index do
+describe Resolvers::Posts::AllPosts do
   let(:query) do
     '
       query posts($olderThanId: ID) {
