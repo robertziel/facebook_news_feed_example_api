@@ -5,6 +5,9 @@ module Types
     field :auth_login, mutation: Mutations::Auth::Login
     field :auth_sign_up, mutation: Mutations::Auth::SignUp
 
+    # Comments
+    field :comment_create, mutation: Mutations::Comments::CreateComment
+
     # Posts
     field :post_create, mutation: Mutations::Posts::CreatePost
 
