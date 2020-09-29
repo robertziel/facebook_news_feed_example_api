@@ -11,6 +11,7 @@ describe Resolvers::Posts::ShowPost do
           truncatedContent
           createdAt
           user {
+            avatar
             name
           }
         }

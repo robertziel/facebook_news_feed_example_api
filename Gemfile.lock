@@ -118,6 +118,7 @@ GEM
     graphql (1.11.4)
     graphql-errors (0.4.0)
       graphql (>= 1.6.0, < 2)
+    gravatar_image_tag (1.2.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     json (2.3.1)
@@ -277,6 +278,7 @@ DEPENDENCIES
   graphiql-rails
   graphql
   graphql-errors
+  gravatar_image_tag
   mysql2
   pry
   puma

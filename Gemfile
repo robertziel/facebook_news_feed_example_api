@@ -16,6 +16,7 @@ gem 'graphql-errors'
 
 # Assets
 
+gem 'gravatar_image_tag'
 gem 'sass-rails'
 gem 'uglifier'
 

@@ -11,6 +11,7 @@ describe Resolvers::Posts::AllPosts do
           createdAt
           truncatedContent
           user {
+            avatar
             name
           }
         }

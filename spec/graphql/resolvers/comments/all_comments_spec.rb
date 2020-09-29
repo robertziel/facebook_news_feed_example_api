@@ -9,6 +9,7 @@ describe Resolvers::Comments::AllComments do
           content
           createdAt
           user {
+            avatar
             name
           }
         }
