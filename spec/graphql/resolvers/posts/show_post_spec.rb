@@ -8,6 +8,7 @@ describe Resolvers::Posts::ShowPost do
           id
           content
           title
+          truncatedContent
           createdAt
           user {
             name

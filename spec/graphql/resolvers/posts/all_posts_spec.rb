@@ -9,6 +9,7 @@ describe Resolvers::Posts::AllPosts do
           content
           title
           createdAt
+          truncatedContent
           user {
             name
           }
