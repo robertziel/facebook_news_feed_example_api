@@ -7,7 +7,7 @@ module Types
     field :email, String, null: true
 
     def avatar
-      GravatarImageTag.gravatar_url(object.email, size: 15)
+      GravatarImageTag.gravatar_url(object.email, size: 100)
     end
   end
 end
