@@ -8,7 +8,7 @@ module Types
     field :user, Types::UserType, null: false
 
     def truncated_content
-      truncate(object.content, length: 200)
+      truncate(object.content, length: 200, separator: ' ')
     end
   end
 end
