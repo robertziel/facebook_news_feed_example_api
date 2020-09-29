@@ -10,6 +10,7 @@ module Types
 
     # Posts
     field :post_create, mutation: Mutations::Posts::CreatePost
+    field :post_delete, mutation: Mutations::Posts::DeletePost
 
     # Profile
     field :profile_update, mutation: Mutations::Profile::UpdateProfile
