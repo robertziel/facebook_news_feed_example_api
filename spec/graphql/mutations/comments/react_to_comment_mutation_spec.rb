@@ -5,7 +5,12 @@ describe Mutations::Comments::ReactToComment do
     '
       mutation commentReact($id: ID!, $reactionType: String!){
         commentReact(id: $id, reactionType: $reactionType){
-          success
+          success comment {
+            likeReactionsCount
+            smileReactionsCount
+            thumbsUpReactionsCount
+            currentUserReactionType
+          }
         }
       }
     '

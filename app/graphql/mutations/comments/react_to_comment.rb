@@ -8,6 +8,7 @@ module Mutations
       argument :id, ID, required: true
       argument :reaction_type, String, required: true
       field :success, Boolean, null: false
+      field :comment, Types::CommentType, null: false
 
       def resolve(id:, reaction_type:)
         authenticate_user!
@@ -18,7 +19,7 @@ module Mutations
         reaction.reaction_type = reaction_type
 
         reaction.save!
-        { success: true }
+        { success: true, comment: comment.reload }
       end
     end
   end
