@@ -1,6 +1,8 @@
 module GraphqlSubscriptionsSpecHelper
-  def stream_event_name(event)
-    "#{GraphQL::Subscriptions::ActionCableSubscriptions::EVENT_PREFIX}:#{event}:"
+  def stream_event_name(event, post_id = nil)
+    post_id_str = post_id.nil? ? '' : "postId:#{post_id}"
+
+    "#{GraphQL::Subscriptions::ActionCableSubscriptions::EVENT_PREFIX}:#{event}:#{post_id_str}"
   end
 
   def model_object_gid(object)
