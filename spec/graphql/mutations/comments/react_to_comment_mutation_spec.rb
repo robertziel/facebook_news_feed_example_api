@@ -43,7 +43,7 @@ describe Mutations::Comments::ReactToComment do
       end
     end
 
-    context 'user HAS reacted to comment' do
+    context 'user HAS reacted to comment with different reaction' do
       let!(:reaction) { create :reaction_smile, user: current_user, comment: comment }
 
       it 'does not create a new reaction assigned to current_user' do
@@ -61,6 +61,22 @@ describe Mutations::Comments::ReactToComment do
       it 'updates existing reaction type' do
         subject
         expect(reaction.reload.reaction_type).to eq query_variables[:reaction_type]
+      end
+    end
+
+    context 'user HAS reacted to comment with the same reaction' do
+      let!(:reaction) { create :reaction_like, user: current_user, comment: comment }
+
+      it 'removes reaction assigned to current_user' do
+        expect { subject }.to change { current_user.reactions.count }.by(-1)
+      end
+
+      it 'removes reaction assigned to comment' do
+        expect { subject }.to change { comment.reactions.count }.by(-1)
+      end
+
+      it 'returns success true' do
+        expect(subject['success']).to be true
       end
     end
   end
