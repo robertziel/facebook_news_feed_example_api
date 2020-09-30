@@ -11,6 +11,7 @@ describe Resolvers::Comments::AllComments do
           likeReactionsCount
           smileReactionsCount
           thumbsUpReactionsCount
+          currentUserReactionType
           user {
             id
             avatar

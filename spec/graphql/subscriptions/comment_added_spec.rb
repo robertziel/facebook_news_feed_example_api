@@ -12,6 +12,7 @@ describe GraphqlChannel, type: :channel do
         likeReactionsCount
         smileReactionsCount
         thumbsUpReactionsCount
+        currentUserReactionType
         user {
           id
           avatar
