@@ -11,4 +11,20 @@ class Reaction < ApplicationRecord
   # Validations
   validates :reaction_type, inclusion: { in: TYPES }
   validates :user_id, uniqueness: { scope: :comment_id }
+
+  # Scopes
+  scope :likes, -> { where(reaction_type: LIKE) }
+  scope :smiles, -> { where(reaction_type: SMILE) }
+  scope :thumbs_ups, -> { where(reaction_type: THUMBS_UP) }
+
+  # Callbacks
+  after_save :update_comment_reactions_counts
+  after_destroy :update_comment_reactions_counts
+
+  private
+
+  # Callbacks
+  def update_comment_reactions_counts
+    comment.update_reactions_counts
+  end
 end

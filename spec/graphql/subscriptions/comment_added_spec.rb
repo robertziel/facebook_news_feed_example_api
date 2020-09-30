@@ -9,6 +9,9 @@ describe GraphqlChannel, type: :channel do
         id
         content
         createdAt
+        likeReactionsCount
+        smileReactionsCount
+        thumbsUpReactionsCount
         user {
           id
           avatar

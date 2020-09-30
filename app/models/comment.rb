@@ -10,6 +10,14 @@ class Comment < ApplicationRecord
   # Callbacks
   after_commit :notify_subscriber_of_addition, on: :create
 
+  def update_reactions_counts
+    update_columns(
+      like_reactions_count: reactions.likes.count,
+      smile_reactions_count: reactions.smiles.count,
+      thumbs_up_reactions_count: reactions.thumbs_ups.count
+    )
+  end
+
   private
 
   def notify_subscriber_of_addition

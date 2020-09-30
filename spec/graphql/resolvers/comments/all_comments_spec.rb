@@ -8,7 +8,11 @@ describe Resolvers::Comments::AllComments do
           id
           content
           createdAt
+          likeReactionsCount
+          smileReactionsCount
+          thumbsUpReactionsCount
           user {
+            id
             avatar
             name
           }

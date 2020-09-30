@@ -37,4 +37,29 @@ RSpec.describe Comment, type: :model do
       it { expect { subject }.not_to broadcast_comment_added }
     end
   end
+
+  describe '#update_reactions_counts' do
+    before do
+      comment.save!
+      create_list(:reaction_like, 3, comment: comment)
+      create_list(:reaction_smile, 5, comment: comment)
+      create_list(:reaction_thumbs_up, 9, comment: comment)
+
+      # that don't belong to comment
+      create(:reaction_like)
+      create(:reaction_smile)
+      create(:reaction_thumbs_up)
+    end
+
+    subject do
+      comment.update_reactions_counts
+    end
+
+    it 'updates reactions counts that belong to comment' do
+      subject
+      expect(comment.like_reactions_count).to eq 3
+      expect(comment.smile_reactions_count).to eq 5
+      expect(comment.thumbs_up_reactions_count).to eq 9
+    end
+  end
 end
