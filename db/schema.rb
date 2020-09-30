@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_092211) do
+ActiveRecord::Schema.define(version: 2020_09_30_144759) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "post_id"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 2020_09_27_092211) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "reactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "comment_id"
+    t.bigint "user_id"
+    t.string "reaction_type", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_reactions_on_comment_id"
+    t.index ["user_id", "comment_id"], name: "index_reactions_on_user_id_and_comment_id", unique: true
+    t.index ["user_id"], name: "index_reactions_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -51,4 +62,6 @@ ActiveRecord::Schema.define(version: 2020_09_27_092211) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "reactions", "comments"
+  add_foreign_key "reactions", "users"
 end

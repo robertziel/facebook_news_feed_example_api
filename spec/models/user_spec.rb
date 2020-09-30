@@ -4,6 +4,7 @@ RSpec.describe User, type: :model do
   describe '#relations' do
     it { should have_many(:comments).dependent(:destroy) }
     it { should have_many(:posts).dependent(:destroy) }
+    it { should have_many(:reactions).dependent(:destroy) }
   end
 
   describe '#validations' do

@@ -7,6 +7,7 @@ RSpec.describe Comment, type: :model do
   describe '#relations' do
     it { should belong_to(:post) }
     it { should belong_to(:user) }
+    it { should have_many(:reactions).dependent(:destroy) }
   end
 
   describe '#validations' do

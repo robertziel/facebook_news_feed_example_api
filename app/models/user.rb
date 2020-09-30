@@ -15,6 +15,7 @@ class User < ApplicationRecord
   # RELATIONS
   has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :reactions, dependent: :destroy
 
   # VALIDATIONS
   validates :email, presence: true,
