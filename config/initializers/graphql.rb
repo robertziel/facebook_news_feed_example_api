@@ -1,6 +1,12 @@
+GraphQL::Errors::AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR'
+GraphQL::Errors::RECORD_NOT_FOUND_ERROR = 'RECORD_NOT_FOUND_ERROR'
+
 GraphQL::Errors.configure(GraphqlSchema) do
   rescue_from ActiveRecord::RecordNotFound do |exception|
-    nil
+    raise GraphQL::ExecutionError.new(
+      'record not found',
+      extensions: { code: GraphQL::Errors::RECORD_NOT_FOUND_ERROR }
+    )
   end
 
   rescue_from ActiveRecord::RecordInvalid do |exception|
@@ -17,5 +23,3 @@ GraphQL::Errors.configure(GraphqlSchema) do
   #   context.add_error(firstError)
   # end
 end
-
-GraphQL::Errors::AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR'

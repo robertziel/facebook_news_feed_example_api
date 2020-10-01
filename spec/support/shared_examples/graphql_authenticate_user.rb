@@ -6,7 +6,7 @@ shared_examples :graphql_authenticate_user do |user|
       query_context[:current_user] = nil
     end
 
-    it 'returns authentication error' do
+    it 'returns AUTHENTICATION_ERROR' do
       result = graphql!['errors'].any? do |error|
         error['extensions']['code'] == GraphQL::Errors::AUTHENTICATION_ERROR
       end

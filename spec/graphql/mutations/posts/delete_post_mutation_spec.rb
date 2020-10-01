@@ -37,6 +37,8 @@ describe Mutations::Posts::DeletePost do
         post.update!(user: create(:user))
       end
 
+      include_examples :graphql_record_not_found_error
+
       it 'does not delete post' do
         expect { subject }.to change { Post.count }.by(0)
       end

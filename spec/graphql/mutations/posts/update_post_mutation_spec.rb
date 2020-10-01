@@ -43,9 +43,7 @@ describe Mutations::Posts::UpdatePost do
         post.update!(user: create(:user))
       end
 
-      it 'raises exception' do
-        subject
-      end
+      include_examples :graphql_record_not_found_error
     end
 
     context 'when post is invalid' do
