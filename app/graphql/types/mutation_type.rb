@@ -9,6 +9,7 @@ module Types
     field :comment_create, mutation: Mutations::Comments::CreateComment
     field :comment_react, mutation: Mutations::Comments::ReactToComment
     field :comment_update, mutation: Mutations::Comments::UpdateComment
+    field :comment_delete, mutation: Mutations::Comments::DeleteComment
 
     # Posts
     field :post_create, mutation: Mutations::Posts::CreatePost

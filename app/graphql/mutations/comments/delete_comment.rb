@@ -1,9 +1,9 @@
 module Mutations
-  module Posts
-    class DeletePost < GraphQL::Schema::Mutation
+  module Comments
+    class DeleteComment < GraphQL::Schema::Mutation
       include ::GraphqlAuthenticationConcerns
 
-      description 'Delete post'
+      description 'Delete comment'
       argument :id, ID, required: true
       field :success, Boolean, null: false
 
@@ -11,8 +11,8 @@ module Mutations
         authenticate_user!
         user = context[:current_user]
 
-        post = user.posts.find(id)
-        post.destroy!
+        comment = user.comments.find(id)
+        comment.destroy!
 
         { success: true }
       end
