@@ -5,14 +5,17 @@ describe Resolvers::Posts::AllPosts do
     '
       query posts($olderThanId: ID) {
         posts(olderThanId: $olderThanId) {
-          id
-          content
-          title
-          createdAt
-          truncatedContent
-          user {
-            avatar
-            name
+          moreRecords
+          posts {
+            id
+            content
+            title
+            createdAt
+            truncatedContent
+            user {
+              avatar
+              name
+            }
           }
         }
       }
@@ -31,7 +34,7 @@ describe Resolvers::Posts::AllPosts do
     include_examples :graphql_authenticate_user
 
     it `shows the user's name` do
-      expect(subject.first.dig('user', 'name')).to eq post.user.name
+      expect(subject['posts'].first.dig('user', 'name')).to eq post.user.name
     end
 
     context 'older_than_id is set' do
@@ -41,8 +44,21 @@ describe Resolvers::Posts::AllPosts do
       end
 
       it 'returns posts with id lower than older_than_id' do
-        expect(subject.map { |x| x['id'] }).to eq [post.id.to_s]
+        expect(subject['posts'].map { |x| x['id'] }).to eq [post.id.to_s]
       end
+    end
+
+    context 'when found records count is lower than PER_LOAD' do
+      it { expect(subject['moreRecords']).to be false }
+    end
+
+    context 'when found records count is higher or equal than PER_LOAD' do
+      before do
+        list_length = described_class::PER_LOAD + 1 - Post.count
+        create_list(:post, list_length)
+      end
+
+      it { expect(subject['moreRecords']).to be true }
     end
   end
 end
