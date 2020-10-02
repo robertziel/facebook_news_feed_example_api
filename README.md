@@ -36,10 +36,10 @@ bundle exec rake db:migrate
 bundle exec rake db:seed
 ```
 
-Run the development server:
+Run the development server (I used port 8080 for backend and 3000 for client):
 
 ```
-rails s
+rails s -p 8080
 ```
 
 ## Before commit
@@ -55,3 +55,11 @@ Then you can commit your changes! And don't forget to run specs before:
 ```bash
 bundle exec rspec
 ```
+
+## To do
+* Better posts truncate if first paragraph is short
+* Move all ActiveCable transmissions to separate jobs
+* Integration specs for subscriptions
+* In specs there are some warnings to fix
+* Reactions subscription would be nice
+* Order data by created_at instead of id in AllPosts and AllComments resolvers
